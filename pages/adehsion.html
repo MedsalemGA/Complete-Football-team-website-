@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histoire de l'ESHS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: url('https://www.transparenttextures.com/patterns/football-no-lines.png'), linear-gradient(135deg, #1A1A1A, #333);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background-color: #FFC107;
+            color: #1A1A1A;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background-color 0.3s;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            background-color: #e0a800;
+            transform: scale(1.1);
+        }
+
+        /* Banner */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/stadium-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #FFC107;
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.5));
+            z-index: 1;
+        }
+
+        .banner h1 {
+            font-size: 3em;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .banner p {
+            font-size: 1.3em;
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Intro Section */
+        .intro {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background-color: #fff;
+            margin: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #FFC107, transparent);
+            opacity: 0.1;
+        }
+
+        .intro img {
+            max-width: 180px;
+            margin-right: 40px;
+            border-radius: 50%;
+            border: 5px solid #FFC107;
+            transition: transform 0.3s;
+        }
+
+        .intro img:hover {
+            transform: rotate(360deg);
+        }
+
+        .intro p {
+            max-width: 700px;
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1A1A1A, #FFC107);
+            color: white;
+            text-align: center;
+        }
+
+        .timeline h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .timeline ul {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline li {
+            position: relative;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .timeline li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline li span {
+            position: absolute;
+            top: 20px;
+            left: -80px;
+            background-color: #FFC107;
+            color: #1A1A1A;
+            padding: 8px 12px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Palmarès Section */
+        .palmares {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .palmares h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #1A1A1A;
+            text-transform: uppercase;
+        }
+
+        .palmares p {
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #FFC107;
+            display: inline-block;
+            border-radius: 5px;
+            color: #1A1A1A;
+        }
+
+        /* Notable Players Section */
+        .players {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #FFC107, #1A1A1A);
+            text-align: center;
+            color: white;
+        }
+
+        .players h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .players ul {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .players li {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+
+        .players li:hover {
+            transform: scale(1.05);
+        }
+
+        /* Stade Section */
+        .stade {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .stade h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #1A1A1A;
+            text-transform: uppercase;
+        }
+
+        .stade img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 5px solid #FFC107;
+            transition: transform 0.3s;
+        }
+
+        .stade img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Community Section */
+        .community {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #1A1A1A, #FFC107);
+            color: white;
+            text-align: center;
+        }
+
+        .community h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* Conclusion Section */
+        .conclusion {
+            padding: 60px 20px;
+            background-color: #1A1A1A;
+            color: #FFC107;
+            text-align: center;
+            position: relative;
+        }
+
+        .conclusion::before {
+            content: '⚽';
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+        }
+
+        .conclusion h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .conclusion p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .intro {
+                flex-direction: column;
+                text-align: center;
+                margin: 20px;
+            }
+
+            .intro img {
+                margin: 0 0 20px 0;
+            }
+
+            .timeline li span {
+                position: static;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+
+            .timeline li {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .banner h1 {
+                font-size: 2em;
+            }
+
+            .banner p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .back-btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .intro p {
+                font-size: 1em;
+            }
+
+            .timeline h2, .palmares h2, .players h2, .stade h2, .community h2, .conclusion h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bouton de retour à la page d'accueil -->
+    <a href="../index.php" class="back-btn">⬅ Retour à l'Accueil</a>
+
+    <!-- Bannière -->
+    <header class="banner">
+        <h1>🏆 L'Histoire de l'Espoir Sportif de Hammam Sousse</h1>
+        <p>Depuis 1954, une passion qui traverse les générations</p>
+    </header>
+
+    <!-- Section Introduction -->
+    <section class="intro">
+        <img src="../assets/ES_Hammam-Sousse_logo.png" alt="Logo ESHS">
+        <p>
+            L'<strong>Espoir Sportif de Hammam Sousse (ESHS)</strong> est un club de football tunisien fondé en <strong>1954</strong> à Hammam Sousse, une ville côtière dynamique. 
+            Le club évolue au <strong>stade municipal Bou Ali-Lahouar</strong>, d'une capacité de <strong>6 500 spectateurs</strong>, un lieu emblématique pour les supporters.
+            <br><br>
+            Fondé par un groupe de jeunes passionnés mené par <strong>Mokhtar Latiri</strong>, l'ESHS incarne l'esprit de communauté et la persévérance. Après des décennies de hauts et de bas, le club a marqué un tournant historique en accédant à la <strong>Ligue 1</strong> pour la première fois en <strong>2006</strong>, un exploit célébré par toute la ville.
+        </p>
+    </section>
+
+    <!-- Section Frise Chronologique -->
+    <section class="timeline">
+        <h2>📅 Frise Chronologique</h2>
+        <ul>
+            <li><span>1954</span> - Fondation du club par Mokhtar Latiri et des jeunes de Hammam Sousse.</li>
+            <li><span>1980</span> - Premières performances remarquées dans les divisions régionales.</li>
+            <li><span>2006</span> - Première accession historique en Ligue 1.</li>
+            <li><span>2008</span> - Champion de Tunisie de Ligue 2, un moment de gloire.</li>
+            <li><span>2010</span> - Maintien en Ligue 1 face à des équipes de premier plan.</li>
+            <li><span>2023</span> - Retour en Ligue 2 avec un projet axé sur la jeunesse.</li>
+        </ul>
+    </section>
+
+    <!-- Section Palmarès -->
+    <section class="palmares">
+        <h2>🏅 Palmarès</h2>
+        <p>🏆 <strong>Champion de Tunisie de Ligue 2</strong> (2008)</p>
+        <p>⚽ Plusieurs participations en <strong>Ligue 1</strong> (2006-2010)</p>
+        <p>🥈 Finaliste de la Coupe de la Ligue Tunisienne (1998)</p>
+    </section>
+
+    <!-- Section Joueurs Notables -->
+    <section class="players">
+        <h2>🌟 Joueurs Emblématiques</h2>
+        <ul>
+            <li><strong>Ali Boumnijel</strong> - Gardien de but légendaire, a brillé dans les années 2000.</li>
+            <li><strong>Khaled Gasmi</strong> - Milieu offensif, héros de l'accession en Ligue 1 en 2006.</li>
+            <li><strong>Amine Ltifi</strong> - Attaquant prolifique, formé au club.</li>
+        </ul>
+    </section>
+
+    <!-- Section Stade -->
+    <section class="stade">
+        <h2>🏟️ Stade Bou Ali-Lahouar</h2>
+        <img src="../assets/images__3_-removebg-preview.png" alt="Stade Bou Ali-Lahouar">
+        <p>
+            Situé au cœur de Hammam Sousse, le <strong>stade Bou Ali-Lahouar</strong> est plus qu’un lieu de match : c’est un symbole d’unité pour la communauté. Construit dans les années 1970, il a été rénové pour accueillir les rencontres de Ligue 1.
+        </p>
+    </section>
+
+    <!-- Section Communauté -->
+    <section class="community">
+        <h2>🤝 Impact Communautaire</h2>
+        <p>
+            L’ESHS est profondément ancré dans la vie de Hammam Sousse. Le club gère une académie de jeunes talents, offrant des opportunités aux enfants de la région. Des initiatives caritatives et des événements locaux renforcent le lien entre le club et ses supporters.
+        </p>
+    </section>
+
+    <!-- Section Conclusion -->
+    <section class="conclusion">
+        <h2>🔥 Un Club, Une Passion</h2>
+        <p>
+            L’ESHS continue de porter haut les couleurs de Hammam Sousse, avec un engagement sans faille pour la formation, la compétition et l’esprit communautaire. Le club aspire à retrouver l’élite du football tunisien tout en inspirant les générations futures.
+        </p>
+    </section>
+
+</body>
+</html>

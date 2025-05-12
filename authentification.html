@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESHS | Connexion</title>
+    <link rel="stylesheet" href="../css/authentification.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floodlight Effect -->
+    <div class="floodlight"></div>
+
+    <!-- Decorations -->
+    <div class="decor scarf">
+        <img src="../assets/scarf.png" alt="ESHS Scarf">
+    </div>
+    <div class="decor football">
+        <img src="./assets/football.png" alt="Football">
+    </div>
+    <div class="decor fan">
+        <img src="../assets/cheering_fan.png" alt="Cheering Fan">
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.php">
+                <img src="./assets/ES_Hammam-Sousse_logo.png" alt="ESHS Logo">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="pages/services.php">services</a></li>
+            <li><a href="pages/ESHStv.php">ESHS TV</a></li>
+            <li><a href="pages/adehsion.html">Histoire</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <img src="./assets/iconmonstr-line-three-horizontal-lined-removebg-preview.png" alt="Menu" id="menuIcon" style="height: 30px; cursor: pointer;">
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Form Section -->
+        <div class="form-container">
+            <h2>Connexion</h2>
+            <form action="./css/login.php" method="post">
+                <div class="form-section">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-label="Email">
+                </div>
+                <div class="form-section">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required aria-label="Mot de passe">
+                </div>
+                <button type="submit">Se connecter</button>
+            </form>
+            <p>Pas encore de compte ? <a href="./css/inscription.html">Inscrivez-vous ici</a></p>
+        </div>
+
+        <!-- Sidebar Widgets -->
+        <div class="sidebar">
+            <div class="widget">
+                <h3>Joueur en Vedette</h3>
+                <div class="player-highlight">
+                    <p><strong>Nour Mani</strong></p>
+                    <p>Attaquant vedette d’ESHS, connu pour ses buts spectaculaires au Stade Bouali Lahwar.</p>
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Rejoignez les Ultras</h3>
+                <div class="cta">
+                    <p>Devenez un supporter passionné d’ESHS ! Inscrivez-vous et vivez l’ambiance du stade.</p>
+                    <a href="./css/inscription.html">S’inscrire maintenant</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="errorPopup" class="popup">
+        <div class="popup-content">
+            <p id="popupMessage"></p>
+            <button id="closeButton" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Suivez ESHS</h3>
+            <ul>
+                <li><a href="https://www.instagram.com/espoir.sportif.hammam.sousse/"><img src="./assets/pngtree-instagram-social-platform-icon-png-image_6315976-removebg-preview.png" alt="Instagram"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100030548511719"><img src="./assets/png-clipart-facebook-logo-computer-icons-facebook-logo-facebook-thumbnail-removebg-preview.png" alt="Facebook"></a></li>
+                <li><a href="https://www.youtube.com/@EspoirSportifDeHammamSousse/videos"><img src="./assets/free-youtube-logo-icon-2431-thumb-removebg-preview.png" alt="YouTube"></a></li>
+            </ul>
+        </div>
+        <div class="crowd-effect">Allez ESHS ! ⚽</div>
+        <div class="footer-bottom">
+            <p>© 2025 Espoir Sportif Hammam-Sousse. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+   <script src="./js/authentification.js"></script>
+</body>
+</html>
