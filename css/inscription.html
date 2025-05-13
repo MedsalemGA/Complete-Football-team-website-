@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESHS | Inscription</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/inscription.css">
+</head>
+<body>
+    
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.php">
+                <img src="../assets/ES_Hammam-Sousse_logo.png" alt="Logo">
+            </a>
+        </div>
+        <p>sponsorisé par</p>
+        <div class="sponsor">
+            <a href=""><img src="../assets/Capture d'écran 2025-03-01 011926.png" alt="Sponsor"></a>
+        </div>
+        <ul class="link1">
+            <li><a href="pages/Billets.html">Billets</a></li>
+            <li><a href="pages/Boutique.php">Boutique de Fans</a></li>
+            <li><a href="pages/ESHStv.php">ESHS TV</a></li>
+            <li><a href="pages/adehsion.html">Histoire</a></li>
+            <li><a href="pages/services.php">Services</a></li>
+        </ul>
+        <ul class="links">
+            <li><a href="authentification.html"><img src="../assets/2354573.png" alt="Login"></a></li>
+            <li><img src="../assets/iconmonstr-line-three-horizontal-lined-removebg-preview.png" alt="Menu" id="menuIcon"></li>
+        </ul>
+        <div class="menu-container">
+            <ul id="dropdownMenu" class="dropdown-menu">
+                <li><a href="../index.php">Accueil</a></li>
+                <li><a href="../pages/Billets.html">Tickets</a></li>
+                <li><a href="../pages/Boutique.php">Boutique</a></li>
+                <li><a href="../pages/news.php">News</a></li>
+                <li><a href="../pages/services.php">Services</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Form Section -->
+        <div class="form-container">
+            <h2>Inscription</h2>
+            <form action="register.php" method="post" enctype="multipart/form-data">
+                <div class="form-section">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required aria-label="Nom">
+                </div>
+                <div class="form-section">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-label="Email">
+                </div>
+                <div class="form-section">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required aria-label="Mot de passe">
+                </div>
+                <div class="form-section">
+                    <label for="photo">Photo de profil (facultatif)</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" aria-label="Photo de profil">
+                </div>
+                <button type="submit">S'inscrire</button>
+            </form>
+            <p>Déjà un compte ? <a href="../authentification.html">Connectez-vous ici</a></p>
+        </div>
+
+        <!-- Sidebar Widgets -->
+        <div class="sidebar">
+            <div class="widget">
+                <h3>À propos d'ESHS</h3>
+                <div class="team-info">
+                    <p>Rejoignez la communauté d'Espoir Sportif Hammam-Sousse, un club de football passionné basé à Sousse, Tunisie.</p>
+                    <p>🏟️ Stade : Bouali Lahwar</p>
+                    <p>⚽ Ligue : Tunisian Ligue 2</p>
+                </div>
+            </div>
+            <div class="widget">
+                <h3>Mot des Fans</h3>
+                <p class="fan-quote">"ESHS, notre fierté ! Devenez supporter dès aujourd'hui !" - Ali, fan fidèle</p>
+                <p class="fan-quote">"Vibrez avec nous au stade Bouali Lahwar !" - Nour, supporter depuis 2010</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="errorPopup" class="popup">
+        <div class="popup-content">
+            <p id="popupMessage"></p>
+            <button id="closeButton" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Suivez nous sur les réseaux sociaux</h3>
+            <ul>
+                <li><a href="https://www.instagram.com/espoir.sportif.hammam.sousse/"><img src="./assets/pngtree-instagram-social-platform-icon-png-image_6315976-removebg-preview.png" alt="Instagram"></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100030548511719"><img src="./assets/png-clipart-facebook-logo-computer-icons-facebook-logo-facebook-thumbnail-removebg-preview.png" alt="Facebook"></a></li>
+                <li><a href="https://mail.google.com/mail/u/0/#inbox"><img src="./assets/png-transparent-mail-google-gmail-google-s-logo-icon-removebg-preview.png" alt="Email"></a></li>
+                <li><a href="https://www.youtube.com/@EspoirSportifDeHammamSousse/videos"><img src="./assets/free-youtube-logo-icon-2431-thumb-removebg-preview.png" alt="YouTube"></a></li>
+            </ul>
+        </div>
+        <div class="bas">
+            <span><a href="https://www.ftf.org.tn/fr/"><img src="./assets/Logo_federation_tunisienne_de_football.svg-removebg-preview.png" alt="FTF"></a></span>
+            <span><img src="./assets/images__1_-removebg-preview.png" alt="Ligue 2"></span>
+            <span><img src="./assets/football.png" alt="Football"></span>
+            <span><img src="./assets/trophy.png" alt="Trophy"></span>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar Menu Toggle
+        document.getElementById("menuIcon").addEventListener("click", function () {
+            var menu = document.getElementById("dropdownMenu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        });
+
+        document.addEventListener("click", function (event) {
+            var menu = document.getElementById("dropdownMenu");
+            var icon = document.getElementById("menuIcon");
+            if (!menu.contains(event.target) && event.target !== icon) {
+                menu.style.display = "none";
+            }
+        });
+
+        document.getElementById('menuIcon').addEventListener('click', () => {
+            document.querySelector('.link1').classList.toggle('active');
+        });
+
+        // Popup Handling
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function showPopup(message) {
+            if (message) {
+                document.getElementById("popupMessage").textContent = message;
+                document.getElementById("errorPopup").style.display = "flex";
+                document.getElementById("closeButton").style.display = "inline-block";
+            }
+        }
+
+        function closePopup() {
+            document.getElementById("errorPopup").style.display = "none";
+            window.location.href = "inscription.html";
+        }
+
+        // Check for error message in URL
+        const errorMessage = getQueryParam("error");
+        showPopup(errorMessage);
+    </script>
+</body>
+</html>

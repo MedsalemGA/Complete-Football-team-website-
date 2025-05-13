@@ -1,0 +1,85 @@
+/* Custom styles for services.php */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0f0f0f;
+}
+
+.navbar {
+    z-index: 10;
+}
+
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.chatbot-messages {
+    flex-grow: 1;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.message {
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.bot-message {
+    margin-right: auto;
+    border-radius: 0 10px 10px 10px;
+}
+
+.user-message {
+    margin-left: auto;
+    border-radius: 10px 0 10px 10px;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.chatbot-input input {
+    border: none;
+}
+
+.chatbot-input input:focus {
+    outline: none;
+}
+
+footer {
+    z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chatbot-container {
+        height: 400px;
+        max-width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .link1, .links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .link1 li, .links li {
+        padding: 0.5rem 0;
+    }
+}
